@@ -9,3 +9,8 @@ app.get("/", (req, res) => res.send("Hello World!"));
 app.get("/express_backend", (req, res) => {
   res.send({ express: "BACKEND" });
 });
+
+app.post("/handle_click", (req, res) => {
+  console.log("testing");
+  res.send({ express: "CLICKED" });
+});

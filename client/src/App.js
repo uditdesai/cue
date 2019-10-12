@@ -16,12 +16,23 @@ function App() {
     return body;
   };
 
+  const callAPI = async () => {
+    const response = await fetch("/handle_click", { method: "POST" });
+    const body = await response.json();
+
+    if (response.status !== 200) {
+      throw Error(body.message);
+    }
+
+    return body;
+  };
+
   const handleClick = async () => {
-    const response = await fetch("/handle_click", { method: "POST" }).then(
-      res => {
-        setData(res.json().express);
-      }
-    );
+    callAPI()
+      .then(res => {
+        setData(res.express);
+      })
+      .catch(err => console.log(err));
   };
 
   useEffect(() => {
