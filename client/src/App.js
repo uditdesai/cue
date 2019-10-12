@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import styled from "styled-components";
 
 function App() {
   const [data, setData] = useState(null);
@@ -36,20 +35,18 @@ function App() {
   };
 
   useEffect(() => {
-    callBackendAPI()
-      .then(res => {
-        setData(res.express);
-      })
-      .catch(err => console.log(err));
+    // callBackendAPI()
+    //   .then(res => {
+    //     setData(res.express);
+    //   })
+    //   .catch(err => console.log(err));
   }, []);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <button onClick={handleClick}></button>
-        <p>{data}</p>
-      </header>
-    </div>
+    <>
+      <button onClick={handleClick}></button>
+      <p>{data}</p>
+    </>
   );
 }
 
