@@ -1,16 +1,38 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import WordScreen from "./components/wordScreen";
-import RecordIcon from "./record.png";
+import Play from "./play.png";
+import Pause from "./pause.png";
+import Fox from "./fox.png";
 
 const Container = styled.div`
   display: grid;
   grid-template-columns: 10% 80% 10%;
 `;
 
-const Title = styled.h2`
-  margin-top: 10vh;
+const TitleContainer = styled.div`
+  display: grid;
+  grid-template-columns: 85% 15%;
   grid-column-start: 2;
+  margin-bottom: 0;
+  margin-top: 5vh;
+  text-align: bottom;
+`;
+
+const Title = styled.h1`
+  margin-top: 3vh;
+  color: white;
+  font-size: 78px;
+  margin-bottom: 0;
+`;
+
+const Subtitle = styled.p`
+  color: white;
+  margin-top: 0;
+`;
+
+const Mascot = styled.img`
+  width: 100%;
 `;
 
 const Content = styled.div`
@@ -21,8 +43,21 @@ const Content = styled.div`
 const LegendContainer = styled.div`
   grid-column-start: 2;
   display: grid;
-  grid-template-columns: 15% 15% 15% auto 10% 5%;
+  grid-template-columns: 45% 40% 20%;
   margin-top: 40px;
+`;
+
+const TagContainer = styled.div`
+  width: 90%;
+  border-radius: 10px;
+  border: 3px solid #6bd9c5;
+  text-align: center;
+  padding-left: 30px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Legend = styled.h3`
@@ -33,6 +68,7 @@ const LegendTag = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-right: 30px;
 `;
 
 const Circle = styled.div`
@@ -43,9 +79,17 @@ const Circle = styled.div`
   margin-right: 10px;
 `;
 
-const Record = styled.img`
+const ButtonContainer = styled.div`
   width: 100%;
-  grid-column-start: 6;
+  grid-column-start: 3;
+  display: flex;
+  flex-direction: row;
+  margin-right: 0;
+`;
+
+const Button = styled.img`
+  margin-left: 10px;
+  margin-right: 0;
 `;
 
 const sentenceData = [
@@ -114,7 +158,13 @@ function App() {
   return (
     <>
       <Container>
-        <Title>Select a language, press Q, and start reading</Title>
+        <TitleContainer>
+          <div>
+            <Title>Cue</Title>
+            <Subtitle> Live visual cues to develop vocabulary</Subtitle>
+          </div>
+          <Mascot src={Fox}></Mascot>
+        </TitleContainer>
       </Container>
 
       <Container>
@@ -125,21 +175,27 @@ function App() {
 
       <Container>
         <LegendContainer>
-          <LegendTag>
-            <Circle color={"#EB5757"} />
-            <Legend color={"#EB5757"}>Noun</Legend>
-          </LegendTag>
+          <TagContainer>
+            <LegendTag>
+              <Circle color={"#EB5757"} />
+              <Legend color={"#EB5757"}>Noun</Legend>
+            </LegendTag>
 
-          <LegendTag>
-            <Circle color={"#27AE60"} />
-            <Legend color={"#27AE60"}>Adjective</Legend>
-          </LegendTag>
+            <LegendTag>
+              <Circle color={"#27AE60"} />
+              <Legend color={"#27AE60"}>Adjective</Legend>
+            </LegendTag>
 
-          <LegendTag>
-            <Circle color={"#2D9CDB"} />
-            <Legend color={"#2D9CDB"}>Verb</Legend>
-          </LegendTag>
-          <Record src={RecordIcon} />
+            <LegendTag>
+              <Circle color={"#2D9CDB"} />
+              <Legend color={"#2D9CDB"}>Verb</Legend>
+            </LegendTag>
+          </TagContainer>
+
+          <ButtonContainer>
+            <Button src={Play} />
+            <Button src={Pause} />
+          </ButtonContainer>
         </LegendContainer>
       </Container>
     </>
