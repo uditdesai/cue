@@ -117,6 +117,7 @@ const sentenceData = [
 function App() {
   const [started, setStarted] = useState(false);
   const [resumed, setResumed] = useState(false);
+  const [sentence, setSentence] = useState([]);
 
   // const [data, setData] = useState(null);
 
@@ -158,6 +159,45 @@ function App() {
   //     .catch(err => console.log(err));
   // }, []);
 
+  const callBackendStart = async () => {
+    const response = await fetch("/start", { medthod: "POST" });
+    const body = await response.json();
+
+    if (response.status !== 200) {
+      throw Error(body.message);
+    }
+
+    return body;
+  };
+
+  const handleStart = async () => {};
+
+  const callBackendPause = async () => {
+    const response = await fetch("/pause", { medthod: "POST" });
+    const body = await response.json();
+
+    if (response.status !== 200) {
+      throw Error(body.message);
+    }
+
+    return body;
+  };
+
+  const handlePause = async () => {};
+
+  const callBackendResume = async () => {
+    const response = await fetch("/resume", { medthod: "POST" });
+    const body = await response.json();
+
+    if (response.status !== 200) {
+      throw Error(body.message);
+    }
+
+    return body;
+  };
+
+  const handleResume = async () => {};
+
   return (
     <>
       <Container>
@@ -172,7 +212,12 @@ function App() {
 
       <Container>
         <Content>
-          <WordScreen started={true} resumed={false} sentence={sentenceData} />
+          <WordScreen
+            started={true}
+            resumed={false}
+            sentence={sentenceData}
+            handleStart={callBackendStart}
+          />
         </Content>
       </Container>
 
@@ -195,10 +240,14 @@ function App() {
             </LegendTag>
           </TagContainer>
 
-          <ButtonContainer>
-            <Button src={Play} />
-            <Button src={Pause} />
-          </ButtonContainer>
+          {started === false ? (
+            <ButtonContainer>
+              <Button src={Play} />
+              <Button src={Pause} />
+            </ButtonContainer>
+          ) : (
+            <></>
+          )}
         </LegendContainer>
       </Container>
     </>
