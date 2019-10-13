@@ -160,43 +160,53 @@ function App() {
   // }, []);
 
   const callBackendStart = async () => {
-    const response = await fetch("/start", { medthod: "POST" });
-    const body = await response.json();
+    const response = await fetch("/start", {
+      method: "POST"
+    });
+    const body = await response.text();
 
     if (response.status !== 200) {
       throw Error(body.message);
     }
 
+    console.log(body);
     return body;
   };
 
-  const handleStart = async () => {};
+  const handleStart = async () => {
+    callBackendStart().then(res => {
+      setSentence(JSON.parse(res));
+    });
+    setStarted(true);
+  };
 
   const callBackendPause = async () => {
-    const response = await fetch("/pause", { medthod: "POST" });
-    const body = await response.json();
-
-    if (response.status !== 200) {
-      throw Error(body.message);
-    }
-
-    return body;
+    const response = await fetch("/stop", {
+      method: "POST"
+    });
   };
 
-  const handlePause = async () => {};
+  const handlePause = () => {
+    callBackendPause();
+  };
 
   const callBackendResume = async () => {
-    const response = await fetch("/resume", { medthod: "POST" });
-    const body = await response.json();
+    const response = await fetch("/resume", { method: "POST" });
+    const body = await response.text();
 
-    if (response.status !== 200) {
-      throw Error(body.message);
-    }
+    // if (response.status !== 200) {
+    //   throw Error(body.message);
+    // }
 
+    console.log(body);
     return body;
   };
 
-  const handleResume = async () => {};
+  const handleResume = async () => {
+    callBackendResume().then(res => {
+      setSentence(JSON.parse(res));
+    });
+  };
 
   return (
     <>
@@ -213,10 +223,10 @@ function App() {
       <Container>
         <Content>
           <WordScreen
-            started={true}
+            started={started}
             resumed={false}
-            sentence={sentenceData}
-            handleStart={callBackendStart}
+            sentence={sentence}
+            handleStart={handleStart}
           />
         </Content>
       </Container>
@@ -240,14 +250,10 @@ function App() {
             </LegendTag>
           </TagContainer>
 
-          {started === false ? (
-            <ButtonContainer>
-              <Button src={Play} />
-              <Button src={Pause} />
-            </ButtonContainer>
-          ) : (
-            <></>
-          )}
+          <ButtonContainer>
+            <Button src={Play} onClick={handleResume} />
+            <Button src={Pause} onClick={handlePause} />
+          </ButtonContainer>
         </LegendContainer>
       </Container>
     </>

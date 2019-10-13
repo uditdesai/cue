@@ -101,13 +101,13 @@ const Image = styled.img`
   align-self: flex-end;
 `;
 
-const WordScreen = ({ started, sentence, resumed }) => {
+const WordScreen = ({ started, sentence, resumed, handleStart }) => {
   return (
     <Container>
       {started === false ? (
         <StartContainer resumed={started}>
           <MainStartText>Press record and start speaking</MainStartText>
-          <RecordButtonContainer>
+          <RecordButtonContainer onClick={handleStart}>
             <RecordButtonImg src="https://i.imgur.com/P8xGBcD.png" />
           </RecordButtonContainer>
           <OtherStartText>Press pause when you're stuck</OtherStartText>
