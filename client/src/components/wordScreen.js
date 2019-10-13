@@ -10,6 +10,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   overflow: auto;
+  background-color: white;
 `;
 
 const StartContainer = styled.div`
@@ -18,6 +19,7 @@ const StartContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-items: flex-start;
+  background-color: white;
 `;
 
 const MainStartText = styled.h1`
