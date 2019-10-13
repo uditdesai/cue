@@ -71,45 +71,48 @@ const sentenceData = [
 ];
 
 function App() {
-  const [data, setData] = useState(null);
+  const [started, setStarted] = useState(false);
+  const [resumed, setResumed] = useState(false);
 
-  const callBackendAPI = async () => {
-    const response = await fetch("/express_backend");
-    const body = await response.json();
+  // const [data, setData] = useState(null);
 
-    if (response.status !== 200) {
-      throw Error(body.message);
-    }
+  // const callBackendAPI = async () => {
+  //   const response = await fetch("/express_backend");
+  //   const body = await response.json();
 
-    return body;
-  };
+  //   if (response.status !== 200) {
+  //     throw Error(body.message);
+  //   }
 
-  const callAPI = async () => {
-    const response = await fetch("/handle_click", { method: "POST" });
-    const body = await response.json();
+  //   return body;
+  // };
 
-    if (response.status !== 200) {
-      throw Error(body.message);
-    }
+  // const callAPI = async () => {
+  //   const response = await fetch("/handle_click", { method: "POST" });
+  //   const body = await response.json();
 
-    return body;
-  };
+  //   if (response.status !== 200) {
+  //     throw Error(body.message);
+  //   }
 
-  const handleClick = async () => {
-    callAPI()
-      .then(res => {
-        setData(res.express);
-      })
-      .catch(err => console.log(err));
-  };
+  //   return body;
+  // };
 
-  useEffect(() => {
-    // callBackendAPI()
-    //   .then(res => {
-    //     setData(res.express);
-    //   })
-    //   .catch(err => console.log(err));
-  }, []);
+  // const handleClick = async () => {
+  //   callAPI()
+  //     .then(res => {
+  //       setData(res.express);
+  //     })
+  //     .catch(err => console.log(err));
+  // };
+
+  // useEffect(() => {
+  //   callBackendAPI()
+  //     .then(res => {
+  //       setData(res.express);
+  //     })
+  //     .catch(err => console.log(err));
+  // }, []);
 
   return (
     <>
@@ -119,7 +122,7 @@ function App() {
 
       <Container>
         <Content>
-          <WordScreen sentence={sentenceData} />
+          <WordScreen started={true} resumed={false} sentence={sentenceData} />
         </Content>
       </Container>
 
