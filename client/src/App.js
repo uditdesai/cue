@@ -43,6 +43,11 @@ const Circle = styled.div`
   margin-right: 10px;
 `;
 
+const Record = styled.img`
+  width: 100%;
+  grid-column-start: 6;
+`;
+
 const sentenceData = [
   { word: "The", type: "", image: "" },
   { word: "quick", type: "adj", image: "" },

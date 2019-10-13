@@ -57,12 +57,20 @@ const WordScreen = ({ sentence }) => {
   return (
     <Container>
       <InnerContainer>
-        <ItemContainer>
+        {sentence.map(word => (
+          <ItemContainer>
+            <ImageContainer>
+              <Image src={word.image}></Image>
+            </ImageContainer>
+            <Word>{word.word}</Word>
+          </ItemContainer>
+        ))}
+        {/* <ItemContainer>
           <ImageContainer>
             <Image src="https://www.nrcm.org/wp-content/uploads/2018/12/Red-fox-winter-South-China-4-Hal-Winters.jpg"></Image>
           </ImageContainer>
           <Word>Fox</Word>
-        </ItemContainer>
+        </ItemContainer> */}
       </InnerContainer>
     </Container>
   );
