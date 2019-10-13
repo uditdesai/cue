@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import WordScreen from "./components/WordScreen";
+import WordScreen from "./components/wordScreen";
 
 function App() {
   const Container = styled.div`
