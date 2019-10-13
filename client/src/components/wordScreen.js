@@ -9,34 +9,38 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: auto;
 `;
 
 const InnerContainer = styled.div`
   height: 400px;
-  width: 80%;
-  overflow: scroll;
+  width: 90%;
+  overflow-x: scroll !important;
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  white-space: nowrap;
 `;
 
 const ItemContainer = styled.div`
   height: 400px;
-  margin-right: 20px;
-  width: auto;
+  margin-right: 40px;
+  width: 200px;
   display: grid;
+  // justify-items: center;
   grid-template-rows: 70% 30%;
 `;
 
 const Word = styled.h1`
-  margin: auto 0 auto 0;
+  display: flex;
+  width: 100%;
   font-family: "Roboto-Bold";
   font-size: 36px;
   color: black;
+  justify-content: center;
 `;
-
 const ImageContainer = styled.div`
   height: 100%;
+  padding-top: 10px;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -45,7 +49,7 @@ const ImageContainer = styled.div`
 
 const Image = styled.img`
   position: absolute;
-  width: 300px;
+  width: 200px;
   top: 20%;
 `;
 
