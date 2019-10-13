@@ -60,7 +60,7 @@ const Image = styled.img`
   align-self: flex-end;
 `;
 
-const WordScreen = () => {
+const WordScreen = ({ sentence }) => {
   return (
     <Container>
       <InnerContainer>
