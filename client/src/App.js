@@ -116,48 +116,8 @@ const sentenceData = [
 
 function App() {
   const [started, setStarted] = useState(false);
-  const [resumed, setResumed] = useState(false);
+  const [resumed, setResumed] = useState(true);
   const [sentence, setSentence] = useState([]);
-
-  // const [data, setData] = useState(null);
-
-  // const callBackendAPI = async () => {
-  //   const response = await fetch("/express_backend");
-  //   const body = await response.json();
-
-  //   if (response.status !== 200) {
-  //     throw Error(body.message);
-  //   }
-
-  //   return body;
-  // };
-
-  // const callAPI = async () => {
-  //   const response = await fetch("/handle_click", { method: "POST" });
-  //   const body = await response.json();
-
-  //   if (response.status !== 200) {
-  //     throw Error(body.message);
-  //   }
-
-  //   return body;
-  // };
-
-  // const handleClick = async () => {
-  //   callAPI()
-  //     .then(res => {
-  //       setData(res.express);
-  //     })
-  //     .catch(err => console.log(err));
-  // };
-
-  // useEffect(() => {
-  //   callBackendAPI()
-  //     .then(res => {
-  //       setData(res.express);
-  //     })
-  //     .catch(err => console.log(err));
-  // }, []);
 
   const callBackendStart = async () => {
     const response = await fetch("/start", {
@@ -188,6 +148,7 @@ function App() {
 
   const handlePause = () => {
     callBackendPause();
+    setResumed(false);
   };
 
   const callBackendResume = async () => {
@@ -206,6 +167,7 @@ function App() {
     callBackendResume().then(res => {
       setSentence(JSON.parse(res));
     });
+    setResumed(true);
   };
 
   return (
@@ -224,7 +186,7 @@ function App() {
         <Content>
           <WordScreen
             started={started}
-            resumed={false}
+            resumed={resumed}
             sentence={sentence}
             handleStart={handleStart}
           />
@@ -250,10 +212,14 @@ function App() {
             </LegendTag>
           </TagContainer>
 
-          <ButtonContainer>
-            <Button src={Play} onClick={handleResume} />
-            <Button src={Pause} onClick={handlePause} />
-          </ButtonContainer>
+          {started === false ? (
+            <></>
+          ) : (
+            <ButtonContainer>
+              <Button src={Play} onClick={handleResume} />
+              <Button src={Pause} onClick={handlePause} />
+            </ButtonContainer>
+          )}
         </LegendContainer>
       </Container>
     </>

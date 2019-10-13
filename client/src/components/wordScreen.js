@@ -14,7 +14,7 @@ const Container = styled.div`
 `;
 
 const StartContainer = styled.div`
-  width: 400px;
+  width: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,7 +23,7 @@ const StartContainer = styled.div`
 `;
 
 const MainStartText = styled.h1`
-  font-family: "Roboto-Bold";
+  font-family: "Montserrat-Bold";
   color: black;
   font-size: 24px;
   margin: 0;
@@ -47,7 +47,7 @@ const RecordButtonImg = styled.img`
 `;
 
 const OtherStartText = styled.h3`
-  font-family: "Roboto-Bold";
+  font-family: "Montserrat-Bold";
   color: #a8a6a6;
   font-size: 18px;
   margin: 20px 0 0 0;
@@ -114,7 +114,7 @@ const WordScreen = ({ started, sentence, resumed, handleStart }) => {
         </StartContainer>
       ) : resumed === true ? (
         <StartContainer resumed={resumed}>
-          <MainStartText>Listening...</MainStartText>
+          <OtherStartText>Listening...</OtherStartText>
         </StartContainer>
       ) : (
         <InnerContainer resumed={resumed}>
