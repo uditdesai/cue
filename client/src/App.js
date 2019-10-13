@@ -22,7 +22,7 @@ const LegendContainer = styled.div`
   grid-column-start: 2;
   display: grid;
   grid-template-columns: 15% 15% 15% auto 10% 5%;
-  margin-top: 15px;
+  margin-top: 40px;
 `;
 
 const Legend = styled.h3`
@@ -49,22 +49,22 @@ const Record = styled.img`
 `;
 
 const sentenceData = [
-  { word: "The", type: "", image: "" },
-  { word: "quick", type: "adj", image: "" },
-  { word: "brown", type: "adj", image: "" },
+  { token: "The", tag: "", image: "" },
+  { token: "quick", tag: "JJ", image: "" },
+  { token: "brown", tag: "JJ", image: "" },
   {
-    word: "fox",
-    type: "noun",
+    token: "fox",
+    tag: "NN",
     image:
       "https://www.nrcm.org/wp-content/uploads/2018/12/Red-fox-winter-South-China-4-Hal-Winters.jpg"
   },
-  { word: "jumps", type: "verb", image: "" },
-  { word: "over", type: "", image: "" },
-  { word: "the", type: "", image: "" },
-  { word: "lazy", type: "adj", image: "" },
+  { token: "jumps", tag: "VB", image: "" },
+  { token: "over", tag: "", image: "" },
+  { token: "the", tag: "", image: "" },
+  { token: "lazy", tag: "JJ", image: "" },
   {
-    word: "dog",
-    type: "noun",
+    token: "dog",
+    tag: "NN",
     image:
       "https://www.washingtonpost.com/resizer/J-KV2Xwpo332CjFPeEJn1-VGCuk=/1484x0/arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/HB4AT3D3IMI6TMPTWIZ74WAR54.jpg"
   }
