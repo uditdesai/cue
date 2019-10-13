@@ -22,6 +22,7 @@ function App() {
     grid-column-start: 2;
     display: grid;
     grid-template-columns: 15% 15% 15% auto 10% 5%;
+    margin-top: 15px;
   `;
 
   const Legend = styled.h3`
@@ -101,12 +102,12 @@ function App() {
 
           <LegendTag>
             <Circle color={"#27AE60"} />
-            <Legend color={"#27AE60"}>Noun</Legend>
+            <Legend color={"#27AE60"}>Adjective</Legend>
           </LegendTag>
 
           <LegendTag>
             <Circle color={"#2D9CDB"} />
-            <Legend color={"#2D9CDB"}>Noun</Legend>
+            <Legend color={"#2D9CDB"}>Verb</Legend>
           </LegendTag>
         </LegendContainer>
       </Container>
