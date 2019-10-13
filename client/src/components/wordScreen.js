@@ -49,7 +49,7 @@ const Image = styled.img`
   top: 20%;
 `;
 
-const wordScreen = () => {
+const WordScreen = () => {
   return (
     <Container>
       <InnerContainer>
@@ -63,3 +63,5 @@ const wordScreen = () => {
     </Container>
   );
 };
+
+export default WordScreen;

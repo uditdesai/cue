@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import WordScreen from "./components/WordScreen";
 
 function App() {
   const Container = styled.div`
@@ -14,7 +15,6 @@ function App() {
 
   const Content = styled.div`
     grid-column-start: 2;
-    background-color: black;
     height: 400px;
   `;
 
@@ -89,7 +89,9 @@ function App() {
       </Container>
 
       <Container>
-        <Content />
+        <Content>
+          <WordScreen />
+        </Content>
       </Container>
 
       <Container>
