@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import WordScreen from "./components/wordScreen";
+import RecordIcon from "./record.png";
 
 const Container = styled.div`
   display: grid;
@@ -133,6 +134,7 @@ function App() {
             <Circle color={"#2D9CDB"} />
             <Legend color={"#2D9CDB"}>Verb</Legend>
           </LegendTag>
+          <Record src={RecordIcon} />
         </LegendContainer>
       </Container>
     </>
