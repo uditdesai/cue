@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import WordScreen from "./components/WordScreen";
+import WordScreen from "./components/wordScreen";
+import RecordIcon from "./record.png";
 
 function App() {
   const Container = styled.div`
@@ -22,11 +23,12 @@ function App() {
     grid-column-start: 2;
     display: grid;
     grid-template-columns: 15% 15% 15% auto 10% 5%;
-    margin-top: 15px;
+    margin-top: 10vh;
   `;
 
   const Legend = styled.h3`
     color: ${props => `${props.color}`};
+    align-items: bottom;
   `;
 
   const LegendTag = styled.div`
@@ -41,6 +43,14 @@ function App() {
     width: 25px;
     border-radius: 50%;
     margin-right: 10px;
+  `;
+
+  const Record = styled.img`
+    grid-column-start: 6;
+    width: 80%;
+    &:hover {
+      opacity: 0.5;
+    }
   `;
 
   const [data, setData] = useState(null);
@@ -111,6 +121,7 @@ function App() {
             <Circle color={"#2D9CDB"} />
             <Legend color={"#2D9CDB"}>Verb</Legend>
           </LegendTag>
+          <Record src={RecordIcon} />
         </LegendContainer>
       </Container>
     </>
