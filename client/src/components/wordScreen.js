@@ -9,7 +9,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: auto;
+  overflow: hidden;
 `;
 
 const InnerContainer = styled.div`
@@ -24,7 +24,7 @@ const InnerContainer = styled.div`
 const ItemContainer = styled.div`
   height: 400px;
   margin-right: 40px;
-  width: 200px;
+  min-width: 200px;
   display: grid;
   // justify-items: center;
   grid-template-rows: 70% 30%;
@@ -53,7 +53,7 @@ const Image = styled.img`
   top: 20%;
 `;
 
-const WordScreen = () => {
+const WordScreen = ({ sentence }) => {
   return (
     <Container>
       <InnerContainer>

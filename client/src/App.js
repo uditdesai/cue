@@ -2,47 +2,69 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import WordScreen from "./components/wordScreen";
 
+const Container = styled.div`
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+`;
+
+const Title = styled.h2`
+  margin-top: 10vh;
+  grid-column-start: 2;
+`;
+
+const Content = styled.div`
+  grid-column-start: 2;
+  height: 400px;
+`;
+
+const LegendContainer = styled.div`
+  grid-column-start: 2;
+  display: grid;
+  grid-template-columns: 15% 15% 15% auto 10% 5%;
+  margin-top: 15px;
+`;
+
+const Legend = styled.h3`
+  color: ${props => `${props.color}`};
+`;
+
+const LegendTag = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+const Circle = styled.div`
+  background-color: ${props => `${props.color}`};
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  margin-right: 10px;
+`;
+
+const sentenceData = [
+  { word: "The", type: "", image: "" },
+  { word: "quick", type: "adj", image: "" },
+  { word: "brown", type: "adj", image: "" },
+  {
+    word: "fox",
+    type: "noun",
+    image:
+      "https://www.nrcm.org/wp-content/uploads/2018/12/Red-fox-winter-South-China-4-Hal-Winters.jpg"
+  },
+  { word: "jumps", type: "verb", image: "" },
+  { word: "over", type: "", image: "" },
+  { word: "the", type: "", image: "" },
+  { word: "lazy", type: "adj", image: "" },
+  {
+    word: "dog",
+    type: "noun",
+    image:
+      "https://www.washingtonpost.com/resizer/J-KV2Xwpo332CjFPeEJn1-VGCuk=/1484x0/arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/HB4AT3D3IMI6TMPTWIZ74WAR54.jpg"
+  }
+];
+
 function App() {
-  const Container = styled.div`
-    display: grid;
-    grid-template-columns: 10% 80% 10%;
-  `;
-
-  const Title = styled.h2`
-    margin-top: 10vh;
-    grid-column-start: 2;
-  `;
-
-  const Content = styled.div`
-    grid-column-start: 2;
-    height: 400px;
-  `;
-
-  const LegendContainer = styled.div`
-    grid-column-start: 2;
-    display: grid;
-    grid-template-columns: 15% 15% 15% auto 10% 5%;
-    margin-top: 15px;
-  `;
-
-  const Legend = styled.h3`
-    color: ${props => `${props.color}`};
-  `;
-
-  const LegendTag = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  `;
-
-  const Circle = styled.div`
-    background-color: ${props => `${props.color}`};
-    height: 25px;
-    width: 25px;
-    border-radius: 50%;
-    margin-right: 10px;
-  `;
-
   const [data, setData] = useState(null);
 
   const callBackendAPI = async () => {
@@ -91,7 +113,7 @@ function App() {
 
       <Container>
         <Content>
-          <WordScreen />
+          <WordScreen sentence={sentenceData} />
         </Content>
       </Container>
 
