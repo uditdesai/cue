@@ -9,7 +9,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  overflow: auto;
 `;
 
 const InnerContainer = styled.div`
@@ -24,7 +24,7 @@ const InnerContainer = styled.div`
 const ItemContainer = styled.div`
   height: 400px;
   margin-right: 40px;
-  min-width: 200px;
+  width: 200px;
   display: grid;
   // justify-items: center;
   grid-template-rows: 70% 30%;
@@ -33,7 +33,7 @@ const ItemContainer = styled.div`
 const Word = styled.h1`
   display: flex;
   width: 100%;
-  font-family: "Roboto-Bold";
+  font-family: "Montserrat-Bold";
   font-size: 36px;
   color: black;
   justify-content: center;
@@ -53,24 +53,16 @@ const Image = styled.img`
   top: 20%;
 `;
 
-const WordScreen = ({ sentence }) => {
+const WordScreen = () => {
   return (
     <Container>
       <InnerContainer>
-        {sentence.map(word => (
-          <ItemContainer>
-            <ImageContainer>
-              <Image src={word.image}></Image>
-            </ImageContainer>
-            <Word>{word.word}</Word>
-          </ItemContainer>
-        ))}
-        {/* <ItemContainer>
+        <ItemContainer>
           <ImageContainer>
             <Image src="https://www.nrcm.org/wp-content/uploads/2018/12/Red-fox-winter-South-China-4-Hal-Winters.jpg"></Image>
           </ImageContainer>
           <Word>Fox</Word>
-        </ItemContainer> */}
+        </ItemContainer>
       </InnerContainer>
     </Container>
   );
